@@ -16,8 +16,7 @@ public class CartController : ControllerBase
         _cartService = cartService;
     }
 
-    private string UserId =>
-        User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value!;
+    private string UserId = "";
 
     [HttpGet]
     public async Task<IActionResult> Get()

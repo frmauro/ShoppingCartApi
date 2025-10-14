@@ -18,19 +18,19 @@ var configuration = builder.Configuration;
             b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
 
 
-// -- Identity --
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
-{
-    options.Password.RequireDigit = false;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequiredLength = 6;
-})
-    .AddEntityFrameworkStores<AppDbContext>()
-    .AddDefaultTokenProviders();
+// // -- Identity --
+// builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+// {
+//     options.Password.RequireDigit = false;
+//     options.Password.RequireNonAlphanumeric = false;
+//     options.Password.RequiredLength = 6;
+// })
+//     .AddEntityFrameworkStores<AppDbContext>()
+//     .AddDefaultTokenProviders();
 
 
 
-// -- JWT Authentication --
+//-- JWT Authentication --
 var jwtSection = configuration.GetSection("Jwt");
 var key = jwtSection.GetValue<string>("Key")!;
 var issuer = jwtSection.GetValue<string>("Issuer");

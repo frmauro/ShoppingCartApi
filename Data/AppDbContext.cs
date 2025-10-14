@@ -4,7 +4,7 @@ using ShoppingCartApi.Models;
 
 namespace ShoppingCartApi.Data;
 
-public class AppDbContext : IdentityDbContext<ApplicationUser>
+public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
