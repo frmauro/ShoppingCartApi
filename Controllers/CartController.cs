@@ -54,4 +54,4 @@ public class CartController : ControllerBase
     }
 }
 
-public record AddCartItemDto(int ProductId, int Quantity);
+public record AddCartItemDto(int ProductId, int Quantity, decimal Price);
