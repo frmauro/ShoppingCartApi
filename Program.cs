@@ -66,6 +66,7 @@ builder.Services.AddAuthentication(options =>
 
 // -- App services --
 builder.Services.AddScoped<CartService>();
+builder.Services.AddScoped<ProductService>();
 
 // -- Controllers & Swagger --
 builder.Services.AddControllers();

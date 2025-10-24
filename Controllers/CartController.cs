@@ -10,10 +10,13 @@ namespace ShoppingCartApi.Controllers;
 public class CartController : ControllerBase
 {
     private readonly CartService _cartService;
+    private readonly ProductService _productService;
 
-    public CartController(CartService cartService)
+    public CartController(CartService cartService, 
+    ProductService productService)
     {
         _cartService = cartService;
+        _productService = productService;
     }
 
     private string UserId = "";
@@ -29,6 +32,7 @@ public class CartController : ControllerBase
     public async Task<IActionResult> Add([FromBody] AddCartItemDto dto)
     {
         await _cartService.AddItemAsync(UserId, dto.ProductId, dto.Quantity);
+        await _productService.EnqueueProductQuantityAsync(dto.ProductId, dto.Quantity);
         return Ok("Item adicionado.");
     }
 
